@@ -55,8 +55,8 @@ Trello REST API, SMTP (email), Slack incoming webhook.
 | TRELLO_API_KEY, TRELLO_TOKEN | Reading/writing the board | trello.com/power-ups/admin | Yes (real data) |
 | TRELLO_BOARD_ID | Which board | Board URL + `.json`, copy top-level `id` (not secret) | Yes (real data) |
 | GOOGLE_API_KEY | LLM (Gemini) | aistudio.google.com | Optional; none = templates |
-| SMTP_HOST/PORT/USER/PASSWORD, REPORT_FROM, REPORT_TO | Emailing reports | Your mail provider (use an app password) | Optional (else saved to ./reports) |
-| SLACK_WEBHOOK_URL | Reminders | Slack app > Incoming Webhooks | Optional (else saved to ./reports) |
+| SMTP_HOST/PORT/USER/PASSWORD, REPORT_FROM, REPORT_TO | Emailing reports | Your mail provider (use an app password) | Optional (else saved to data/reports) |
+| SLACK_WEBHOOK_URL | Reminders | Slack app > Incoming Webhooks | Optional (else saved to data/reports) |
 | GitHub repo secrets | Hosted schedule | Repo Settings > Secrets | Only for GitHub Actions |
 
 Never commit `.env` (a `.gitignore` is included). Trello write access is only used when Dry run is off.
@@ -72,7 +72,7 @@ A React (Vite) single-page app served by the Flask JSON API (`npm run build` in 
 | Planning | `/planning` | Brief + team to tasks, assignments and due dates, then create Trello cards |
 | Closure | `/closure` | Completion check, closure report, archive board |
 
-The board is fetched once into `cache/cache_board.json` (refreshed every 30 minutes in the background, or with the Refresh button),
+The board is fetched once into `data/cache/cache_board.json` (refreshed every 30 minutes in the background, or with the Refresh button),
 and every page reads that cached data, so opening a page never calls Trello.
 Health checks: `/ping` and `/api/trello-health`. Security headers are set on every response.
 
@@ -86,4 +86,4 @@ Health checks: `/ping` and `/api/trello-health`. Security headers are set on eve
 | Blocked | label `Blocked` (+ a comment with the reason) | `Blocked` |
 | Status | the list the card is in | To Do / Doing / In Review / Done |
 
-Names are configurable in `backend/agent/config.py` (including the order phases appear in). Cards without a Release or Phase label appear as "Unassigned" / "No phase" on the dashboard.
+Names are configurable in `backend/src/pmo/config.py` (including the order phases appear in). Cards without a Release or Phase label appear as "Unassigned" / "No phase" on the dashboard.

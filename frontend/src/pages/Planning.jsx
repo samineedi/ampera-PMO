@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { BusyButton, post, useApp } from '../lib.jsx';
+import { post } from '../api/client.js';
+import { BusyButton } from '../components/BusyButton.jsx';
+import { useApp } from '../hooks/useApp.js';
 
 const COLS = [['title', 'text'], ['assignee', 'text'], ['skills', 'text'], ['estimate_days', 'number'], ['priority', 'text'], ['due', 'date']];
 const HEADS = ['Task', 'Assignee', 'Skills', 'Est (days)', 'Priority', 'Due'];

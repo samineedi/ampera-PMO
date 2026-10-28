@@ -1,5 +1,9 @@
 import { useState } from 'react';
-import { BusyButton, Kpi, ProjectSelect, post, useApp } from '../lib.jsx';
+import { post } from '../api/client.js';
+import { BusyButton } from '../components/BusyButton.jsx';
+import { Kpi } from '../components/Kpi.jsx';
+import { ProjectSelect } from '../components/ProjectSelect.jsx';
+import { useApp } from '../hooks/useApp.js';
 
 export default function Closure() {
   const { toast } = useApp();

@@ -1,9 +1,11 @@
 .env
-reports/
+.venv/
 __pycache__/
 *.pyc
-.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+data/*
+!data/.gitkeep
 frontend/node_modules/
 frontend/dist/
-cache/
-.pytest_cache/

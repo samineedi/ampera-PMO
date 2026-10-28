@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { BusyButton, ItemLink, Kpi, Loading, ProjectSelect, post, useApp, useFetch } from '../lib.jsx';
+import { post } from '../api/client.js';
+import { BusyButton } from '../components/BusyButton.jsx';
+import { ItemLink } from '../components/ItemLink.jsx';
+import { Kpi } from '../components/Kpi.jsx';
+import { Loading } from '../components/Loading.jsx';
+import { ProjectSelect } from '../components/ProjectSelect.jsx';
+import { useApp } from '../hooks/useApp.js';
+import { useFetch } from '../hooks/useFetch.js';
 
 const SECTIONS = [['completed', 'Completed this week'], ['in_progress', 'In progress'], ['blocked', 'Blocked'],
   ['overdue', 'Overdue'], ['upcoming', 'Due in the next 7 days']];

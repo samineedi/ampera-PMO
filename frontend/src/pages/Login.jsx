@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { post } from '../lib.jsx';
+import { post } from '../api/client.js';
 
 export default function Login({ onLogin }) {
   const [username, setUsername] = useState('');

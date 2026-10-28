@@ -1,12 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
 import { NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import { AppCtx, BusyButton, post, request, useToast } from './lib.jsx';
+import { post, request } from './api/client.js';
+import { BusyButton } from './components/BusyButton.jsx';
+import { AppCtx } from './hooks/useApp.js';
+import { useToast } from './hooks/useToast.js';
 import Dashboard from './pages/Dashboard.jsx';
 import WeeklyDigest from './pages/WeeklyDigest.jsx';
 import Planning from './pages/Planning.jsx';
 import Closure from './pages/Closure.jsx';
 import Login from './pages/Login.jsx';
-import ChatWidget from './ChatWidget.jsx';
+import ChatWidget from './components/ChatWidget.jsx';
 
 const NAV = [
   ['/dashboard', 'Dashboard', 'dashboard'],

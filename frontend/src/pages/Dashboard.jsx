@@ -1,5 +1,9 @@
 import { useSearchParams } from 'react-router-dom';
-import { ItemLink, Kpi, Loading, ProjectSelect, useFetch } from '../lib.jsx';
+import { ItemLink } from '../components/ItemLink.jsx';
+import { Kpi } from '../components/Kpi.jsx';
+import { Loading } from '../components/Loading.jsx';
+import { ProjectSelect } from '../components/ProjectSelect.jsx';
+import { useFetch } from '../hooks/useFetch.js';
 
 const STAGES = ['Backlog', 'Development', 'Testing', 'Done'];
 
