@@ -9,6 +9,7 @@ from pmo.main import create_app
 def client(monkeypatch, items):
     monkeypatch.setenv("AUTH_DISABLED", "false")
     monkeypatch.setenv("APP_USERNAME", "pmo")
+    monkeypatch.setenv("SECRET_KEY", "test-secret-key")
     monkeypatch.setenv("APP_PASSWORD_HASH", generate_password_hash("s3cret"))
     monkeypatch.delenv("APP_PASSWORD", raising=False)
     monkeypatch.setattr(common, "board", lambda refresh=False: {"items": items})
